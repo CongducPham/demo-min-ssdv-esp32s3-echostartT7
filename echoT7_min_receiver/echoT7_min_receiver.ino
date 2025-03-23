@@ -1,5 +1,7 @@
 #ifdef ARDUINO_XIAO_ESP32S3
 #define USB_SERIAL      Serial
+// on the EchoStar Terminal T7, HEADER_SERIAL is also defined as Seria1
+// see leat-echostar-terminals/hardware/stm32/12.7.5-0/variants/variant_EchoT7/variant_generic.h
 #define HEADER_SERIAL   Serial1
 #define RX_PIN          D7
 #define TX_PIN          D6
@@ -48,7 +50,7 @@ uint16_t min_tx_space(uint8_t port)
 }
 
 // Send a character on the designated port.
-// Here we would send using HEADER_SERIAL which communicates with the ALIF or ESP32S3
+// Here we would send using HEADER_SERIAL which communicates with the ESP32S3
 void min_tx_byte(uint8_t port, uint8_t byte)
 {
   // Ignore 'port' because we have just one context.

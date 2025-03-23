@@ -217,7 +217,7 @@ int send_image_ssdv(uint8_t* source_image_buf, size_t source_image_size) {
     return (0);
   ssdv_enc_set_buffer(&ssdv, MY_SSDV_enc_buffer);
 
-  print_buf_len = sprintf(print_buf, "ALIF-BEGIN-SSDV-i%d-q%d-l%d\n", MY_SSDV_image_id, MY_SSDV_quality, MY_SSDV_packet_length);
+  print_buf_len = sprintf(print_buf, "ESP32S3-BEGIN-SSDV-i%d-q%d-l%d\n", MY_SSDV_image_id, MY_SSDV_quality, MY_SSDV_packet_length);
 #ifdef USE_MIN 
   min_send_frame(&min_ctx, INFO_CHANNEL, (uint8_t *)print_buf, (uint8_t)print_buf_len); 
 #else
@@ -307,7 +307,7 @@ int send_image_ssdv(uint8_t* source_image_buf, size_t source_image_size) {
 
   Serial.printf("Sent %d SSDV packets\n", MY_SSDV_packet_count);
 
-  print_buf_len = sprintf(print_buf, "ALIF-END-SSDV-i%d-q%d-l%d-p%d\n", MY_SSDV_image_id, MY_SSDV_quality, MY_SSDV_packet_length, MY_SSDV_packet_count);
+  print_buf_len = sprintf(print_buf, "ESP32S3-END-SSDV-i%d-q%d-l%d-p%d\n", MY_SSDV_image_id, MY_SSDV_quality, MY_SSDV_packet_length, MY_SSDV_packet_count);
 #ifdef USE_MIN 
   min_send_frame(&min_ctx, INFO_CHANNEL, (uint8_t *)print_buf, (uint8_t)print_buf_len); 
 #else
