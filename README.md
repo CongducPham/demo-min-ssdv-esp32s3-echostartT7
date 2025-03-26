@@ -1,13 +1,13 @@
 Demonstrating serial data transfer between an ESP32S3 and the EchoStar Terminal T7
 =======================================================
 
-With Prof Fabien Ferrero from LEAT laboratory, we are collaborating on satellite transmission of IoT data. He and his team are developing dedicated cost-effective antennas and terminal to send IoT data to LEO satellite. Their latest development board is the [EchoStar Terminal T7](https://github.com/nguyenmanhthao996tn/LEAT-EchoStar-Terminal-BSP) which uses an EchoStar EM2050 radio to send to the EchoStar satellite.
+With Pr. Fabien Ferrero from LEAT laboratory, we are collaborating on satellite transmission of IoT data. He and his team are developing dedicated cost-effective antennas and terminal to send IoT data to LEO satellite. Their latest development board is the [EchoStar Terminal T7](https://github.com/nguyenmanhthao996tn/LEAT-EchoStar-Terminal-BSP) which uses an EchoStar EM2050 radio to send to the EchoStar satellite.
 
 In the context of this collaboration, we tested serial data transfer between an ESP32S3 and the EchoStar Terminal T7. The idea is to use the XIAO ESP32S3-Sense (see our[LoRaCAM-AI](https://github.com/CongducPham/PEPR_AgriFutur/tree/main/Arduino_ESP32)) to take pictures, process the picture and eventually transmit the picture. In case of picture transmission, the picture will be first encoded to reduce its size and increase its robusteness against packet losses.
 
 <img src="https://github.com/CongducPham/demo-min-ssdv-esp32s3-echostartT7/blob/main/images/esp32s3_echostarT7.jpg" width="500">
 
-We developed a proof-of-concept using MIN ([Microcontroller Interconnect Network](https://github.com/min-protocol/min)) to implement the serial data transfer and SSDV ([Slow Scan Digital Video])(https://ukhas.org.uk/doku.php?id=guides:ssdv) to encode the picture. The [SSDV library](https://github.com/fsphil/ssdv) is provided by Philip Heron.
+We developed a proof-of-concept using MIN ([Microcontroller Interconnect Network](https://github.com/min-protocol/min)) to implement the serial data transfer and SSDV ([Slow Scan Digital Video](https://ukhas.org.uk/doku.php?id=guides:ssdv)) to encode the picture. The [SSDV library](https://github.com/fsphil/ssdv) is provided by Philip Heron.
 
 During this process, we learned a lot of things on MIN and SSDV and this repository both acknowledges the great work from MIN & SSDV and also wanted to provide an operational example that can help others to overcome some implementation issues when dealing with MIN & SSDV.
 
@@ -30,7 +30,7 @@ You can achieve the same result by using the `ssdv_tool_chain.sh` script:
 
   > ssdv_tool_chain.sh person240x240 4 80
 
-Note that you should not put the `.jpg` extension for the `ssdv_tool_chain.sh` script.
+Where 4 is the SSDV quality and 80 is the SSDV packet size. Note that you should not put the `.jpg` extension for the `ssdv_tool_chain.sh` script.
 
 Enjoy!
 C. Pham
