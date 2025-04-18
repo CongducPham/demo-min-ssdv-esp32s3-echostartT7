@@ -11,7 +11,14 @@ We developed a proof-of-concept using MIN ([Microcontroller Interconnect Network
 
 During this process, we learned a lot of things on MIN and SSDV and this repository both acknowledges the great work from MIN & SSDV and also wanted to provide an operational example that can help others to overcome some implementation issues when dealing with MIN & SSDV.
 
-Basically, there is a transmitter, which is the XIAO ESP32S3-Sense, that encodes a statically stored YCbCr jpeg 240x240 image (`person240x240_YCrCb_image_array.h`) using SSDV and transmits each SSDV packet to the EchoStar-T7, acting as receiver of SSDV packets. In the example, there is no still transmission using the EchoStar EM2050 radio but it will be straightforward to do so as the  EM2050 radio can be driven by simple AT commands.
+Basically, there is a transmitter, which is the XIAO ESP32S3-Sense, that encodes a statically stored YCbCr jpeg 240x240 image (`person240x240_YCrCb_image_array.h`) using SSDV and transmits each SSDV packet to the EchoStar-T7, acting as receiver of SSDV packets. In the example, there is still no transmission using the EchoStar EM2050 radio but it will be straightforward to do so as the EM2050 radio can be driven by simple AT commands. Connect the ESP32S3 to EchoT7 as follows:
+
+```
+  ESP32S3     EchoT7
+  D7 (RX)       PA2
+  D6 (TX)       PA3
+
+```
 
 We also provide in the `tools` folder some scripts for image manipulation: "normal" jpeg to YCrCb jpeg, then SSDV encoding, then SSDV decoding, then back to "normal" jpeg to visualize the SSDV decoded image. The general process is:
 
@@ -52,7 +59,6 @@ with T_MIN
 556635F8EDD20000030F0F000F0008D29E94D660AC2BB2B34A29FA18C51F9875A45209247E34858152030E69CD9B5063A8A7B2447B01A50C09D1437E71F860F40730403A84C83E88566C6C68C834E076
 with T_MIN
 …
-
 ```
 
 Then, from the EchoT7 terminal that receives the SSDV packets.
